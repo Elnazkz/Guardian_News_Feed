@@ -23,6 +23,9 @@ class MainRepository @Inject constructor(
         db.articleDao.delete(article)
     }
 
+    suspend fun findArticle(id: String): List<Article> =
+        db.articleDao.getArticleByID(id)
+
     fun getArticles() : LiveData<PagingData<Article>>{
         return Pager(
             config = PagingConfig(
@@ -47,4 +50,5 @@ class MainRepository @Inject constructor(
 
      fun getFavourites() =
         db.articleDao.getAllSavedArticlesFlow()
+
 }

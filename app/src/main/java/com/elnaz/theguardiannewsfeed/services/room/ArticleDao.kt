@@ -17,4 +17,7 @@ abstract class ArticleDao : BaseDao<Article>() {
     @Query("SELECT * FROM articles")
     abstract fun getAllSavedArticlesFlow(): Flow<List<Article>>
 
+    @Query("SELECT * FROM articles WHERE id LIKE '%' || :id || '%'")
+    abstract suspend fun getArticleByID(id: String): List<Article>
+
 }

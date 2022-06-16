@@ -30,6 +30,7 @@ class ArticlesListFragment : BaseFragment<FragmentNewslistBinding>(R.layout.frag
 
     private val mainViewModel: MainViewModel by viewModels()
     private lateinit var newsListAdapter: ArticlesPagingAdapter
+    private lateinit var articleToBeAdded: Article
     private var clickable = true
 
     override fun setupViews() {
@@ -47,6 +48,18 @@ class ArticlesListFragment : BaseFragment<FragmentNewslistBinding>(R.layout.frag
         lifecycleScope.launch {
             mainViewModel.getArticles().observe(viewLifecycleOwner) {
                 newsListAdapter.submitData(lifecycle, it)
+            }
+        }
+
+        mainViewModel.articleFound.observe(viewLifecycleOwner){
+            if (it.isEmpty() && this::articleToBeAdded.isInitialized){
+                mainViewModel.addArticleToFav(articleToBeAdded)
+                binding.progressBar.visibility = View.GONE
+                requireContext().toast(getString(R.string.added_to_favorites), Toast.LENGTH_LONG).show()
+                articleToBeAdded.selected = true
+            }else {
+                binding.progressBar.visibility = View.GONE
+                requireContext().toast(getString(R.string.article_already_added), Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -71,10 +84,9 @@ class ArticlesListFragment : BaseFragment<FragmentNewslistBinding>(R.layout.frag
 
 
     private fun onFavIcClick(article: Article) {
-        if (!article.selected) {
-            mainViewModel.addArticleToFav(article)
-            article.selected = true
-        }
+        binding.progressBar.visibility = View.VISIBLE
+        articleToBeAdded = article
+        mainViewModel.findArticle(article.id)
     }
 
     private fun onArticleClick(article: Article, textView1: TextView, textView2: TextView) {
