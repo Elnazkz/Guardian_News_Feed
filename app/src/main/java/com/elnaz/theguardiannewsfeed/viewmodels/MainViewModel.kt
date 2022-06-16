@@ -20,6 +20,9 @@ class MainViewModel @Inject constructor(
     private val _savedArticle: MutableLiveData<List<Article>> = MutableLiveData()
     val savedArticle: LiveData<List<Article>> = _savedArticle
 
+    private val _articleFound : MutableLiveData<List<Article>> = MutableLiveData()
+    val articleFound: LiveData<List<Article>> = _articleFound
+
     fun addArticleToFav(article: Article) {
         viewModelScope.launch(Dispatchers.IO) {
             mainRepository.insertArticle(article)
@@ -29,6 +32,13 @@ class MainViewModel @Inject constructor(
     fun removeArticleFromFav(article: Article){
         viewModelScope.launch(Dispatchers.IO) {
             mainRepository.deleteArticle(article)
+        }
+    }
+
+    fun findArticle(id: String){
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = mainRepository.findArticle(id)
+            _articleFound.postValue(result)
         }
     }
 

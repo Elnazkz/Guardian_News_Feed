@@ -6,11 +6,9 @@ import android.os.Looper
 import android.view.View
 import android.widget.TextView
 import androidx.core.app.ActivityOptionsCompat
-import androidx.core.os.bundleOf
 import androidx.core.util.Pair
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.elnaz.theguardiannewsfeed.R
 import com.elnaz.theguardiannewsfeed.activities.ARTICLE
@@ -58,7 +56,6 @@ class FavouritesListFragment : BaseFragment<FragmentNewslistBinding>(R.layout.fr
 
     private fun setFavAdapter(list: List<Article>) {
         favouriteAdapter = FavouriteAdapter(
-            list,
             {
                 onFavIcClick(it)
 
@@ -68,6 +65,7 @@ class FavouritesListFragment : BaseFragment<FragmentNewslistBinding>(R.layout.fr
 
             })
 
+        favouriteAdapter.setData(list)
         binding.articleRv.adapter = favouriteAdapter
 
     }

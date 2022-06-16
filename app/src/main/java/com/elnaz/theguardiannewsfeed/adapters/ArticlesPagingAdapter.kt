@@ -25,7 +25,6 @@ class ArticlesPagingAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(article: Article) {
-            val context = binding.root.context
             binding.articleTitle.text = article.webTitle
             binding.articleCategory.text = article.sectionName
 
@@ -33,21 +32,8 @@ class ArticlesPagingAdapter(
                 onClick(article, binding.articleTitle, binding.articleCategory)
             }
 
-            if (article.selected) {
-                binding.favIcon.icon =
-                    ResourcesCompat.getDrawable(context.resources, R.drawable.ic_star, null)
-
-                binding.favIcon.setOnClickListener {
-                    Toast.makeText(context, context.getString(R.string.article_already_added), Toast.LENGTH_LONG).show()
-                }
-            } else {
-                binding.favIcon.icon =
-                    ResourcesCompat.getDrawable(context.resources, R.drawable.ic_empty_start, null)
-
-                binding.favIcon.setOnClickListener {
-                    onFavClick(article)
-                    notifyDataSetChanged()
-                }
+            binding.favIcon.setOnClickListener {
+                onFavClick(article)
             }
         }
 

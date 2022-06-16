@@ -1,5 +1,6 @@
 package com.elnaz.theguardiannewsfeed.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
@@ -12,10 +13,11 @@ import com.elnaz.theguardiannewsfeed.data.Article
 import com.elnaz.theguardiannewsfeed.databinding.ItemArticleBinding
 
 class FavouriteAdapter(
-    private val list: List<Article>,
     private val onFavClick: (Article) -> Unit,
     private val onClick: (Article, TextView, TextView) -> Unit
 ) : RecyclerView.Adapter<FavouriteAdapter.FavArticleViewHolder>() {
+
+    private var list: ArrayList<Article> = ArrayList()
 
     inner class FavArticleViewHolder(
         private val binding: ItemArticleBinding
@@ -36,12 +38,17 @@ class FavouriteAdapter(
                 ResourcesCompat.getDrawable(context.resources, R.drawable.ic_star, null)
 
             binding.favIcon.setOnClickListener {
-                Toast.makeText(context, context.getString(R.string.article_removed), Toast.LENGTH_LONG).show()
                 onFavClick(article)
-                notifyDataSetChanged()
+                Toast.makeText(context, context.getString(R.string.article_removed), Toast.LENGTH_LONG).show()
             }
 
         }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(data: List<Article>) {
+        this.list.addAll(data)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavArticleViewHolder {
