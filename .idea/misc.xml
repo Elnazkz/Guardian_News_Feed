@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Sefryek/AndroidStudioProjects/TheGuardianNewsFeed/app/src/main/res/drawable/bg_white_round_grey_border.xml" value="0.2638888888888889" />
+        <entry key="..\:/Users/Sefryek/AndroidStudioProjects/TheGuardianNewsFeed/app/src/main/res/layout/activity_article_detail.xml" value="0.24094202898550723" />
+        <entry key="..\:/Users/Sefryek/AndroidStudioProjects/TheGuardianNewsFeed/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/Sefryek/AndroidStudioProjects/TheGuardianNewsFeed/app/src/main/res/layout/custom_tab.xml" value="0.17300724637681159" />
+        <entry key="..\:/Users/Sefryek/AndroidStudioProjects/TheGuardianNewsFeed/app/src/main/res/layout/fragment_article.xml" value="0.17300724637681159" />
+        <entry key="..\:/Users/Sefryek/AndroidStudioProjects/TheGuardianNewsFeed/app/src/main/res/layout/fragment_home.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/Sefryek/AndroidStudioProjects/TheGuardianNewsFeed/app/src/main/res/layout/fragment_newslist.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/Sefryek/AndroidStudioProjects/TheGuardianNewsFeed/app/src/main/res/layout/item_article.xml" value="0.3593984962406015" />
+        <entry key="..\:/Users/Sefryek/AndroidStudioProjects/TheGuardianNewsFeed/app/src/main/res/layout/item_loading.xml" value="0.17300724637681159" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

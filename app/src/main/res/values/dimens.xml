@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimen_15">15dp</dimen>
+    <dimen name="dimen_5">5dp</dimen>
+    <dimen name="dimen_8">8dp</dimen>
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="text_large">15sp</dimen>
+    <dimen name="button_width">120dp</dimen>
+    <dimen name="button_height">50dp</dimen>
+    <dimen name="dimen_30">30dp</dimen>
+</resources>

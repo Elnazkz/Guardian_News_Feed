@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        tools:layout="@layout/fragment_home"
+        android:id="@+id/homeFragment"
+        android:name="com.elnaz.theguardiannewsfeed.fragments.HomeFragment"
+        android:label="HomeFragment" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/articlesListFragment"
+        android:name="com.elnaz.theguardiannewsfeed.fragments.ArticlesListFragment"
+        android:label="ArticlesListFragment" >
+        <action
+            android:id="@+id/action_articlesListFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.elnaz.theguardiannewsfeed.fragments.ArticleFragment"
+        android:label="ArticleFragment" >
+        <argument
+            android:name="articleName"
+            app:nullable="true"
+            android:defaultValue="empty"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_articleFragment_to_favouritesListFragment"
+            app:destination="@id/favouritesListFragment" />
+        <action
+            android:id="@+id/action_articleFragment_to_articlesListFragment"
+            app:destination="@id/articlesListFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/favouritesListFragment"
+        android:name="com.elnaz.theguardiannewsfeed.fragments.FavouritesListFragment"
+        android:label="FavouritesListFragment" >
+        <action
+            android:id="@+id/action_favouritesListFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">The Guardian News Feed</string>
+    <string name="title">Title</string>
+    <string name="category">Category</string>
+    <string name="no_articles_found">No Articles Found</string>
+    <string name="retry">Retry</string>
+    <string name="something_went_wrong_press_retry">Something Went Wrong. Press Retry</string>
+    <string name="add_to_favorites">Add to Favorites</string>
+    <string name="remove_from_fav">Remove From Favorite</string>
+    <string name="type">Type</string>
+    <string name="section">Section</string>
+    <string name="web_title">Web Title</string>
+    <string name="no_data_found">No Data Found</string>
+    <string name="article_removed">Article Removed</string>
+    <string name="article_already_added">Article Already Added</string>
+    <string-array name="tab_names">
+        <item>Articles</item>
+        <item>Favorites</item>
+    </string-array>
+</resources>

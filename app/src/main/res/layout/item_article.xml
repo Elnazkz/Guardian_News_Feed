@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.cardview.widget.CardView
+        android:animateLayoutChanges="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_15"
+        android:layout_margin="@dimen/dimen_15"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/dimen_15"
+        app:cardElevation="@dimen/dimen_5">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/dimen_15"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/category_title"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/inter_extra_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category"/>
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/category_title"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@string/something_went_wrong_press_retry"
+                android:id="@+id/article_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/dimen_8" />
+
+            <TextView
+                android:layout_marginTop="@dimen/dimen_10"
+                android:id="@+id/article_title_tv"
+                app:layout_constraintTop_toBottomOf="@id/article_category"
+                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/inter_extra_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title"/>
+
+            <TextView
+                android:id="@+id/article_title"
+                app:layout_constraintTop_toBottomOf="@id/article_title_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/fav_icon"
+                tools:text="@string/something_went_wrong_press_retry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/dimen_8" />
+
+            <com.google.android.material.button.MaterialButton
+                app:icon="@drawable/ic_empty_start"
+                android:text="@string/add_to_favorites"
+                style="@style/OutlinedButton"
+                android:id="@+id/fav_icon"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="@dimen/dimen_10"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
