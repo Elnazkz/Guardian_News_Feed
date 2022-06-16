@@ -53,6 +53,7 @@ class ArticlesListFragment : BaseFragment<FragmentNewslistBinding>(R.layout.frag
 
         mainViewModel.articleFound.observe(viewLifecycleOwner){
             if (it.isEmpty() && this::articleToBeAdded.isInitialized){
+                articleToBeAdded.selected = true
                 mainViewModel.addArticleToFav(articleToBeAdded)
                 binding.progressBar.visibility = View.GONE
                 requireContext().toast(getString(R.string.added_to_favorites), Toast.LENGTH_LONG).show()

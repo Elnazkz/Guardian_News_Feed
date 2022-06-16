@@ -8,6 +8,7 @@ import com.elnaz.theguardiannewsfeed.data.Article
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -24,13 +25,13 @@ class MainViewModel @Inject constructor(
     val articleFound: LiveData<List<Article>> = _articleFound
 
     fun addArticleToFav(article: Article) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             mainRepository.insertArticle(article)
         }
     }
 
     fun removeArticleFromFav(article: Article){
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             mainRepository.deleteArticle(article)
         }
     }

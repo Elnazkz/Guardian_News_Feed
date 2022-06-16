@@ -21,6 +21,7 @@ import com.elnaz.theguardiannewsfeed.data.Article
 import com.elnaz.theguardiannewsfeed.databinding.FragmentNewslistBinding
 import com.elnaz.theguardiannewsfeed.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -71,10 +72,8 @@ class FavouritesListFragment : BaseFragment<FragmentNewslistBinding>(R.layout.fr
     }
 
     private fun onFavIcClick(article: Article) {
-        if (article.selected) {
-            mainViewModel.removeArticleFromFav(article)
-            article.selected = false
-        }
+        mainViewModel.removeArticleFromFav(article)
+        article.selected = false
     }
 
     private fun onArticleClick(article: Article, textView1: TextView, textView2: TextView) {
