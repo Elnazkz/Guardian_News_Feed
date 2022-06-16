@@ -8,6 +8,8 @@ import com.elnaz.theguardiannewsfeed.pagingsources.ArticleAPIPagingSource
 import com.elnaz.theguardiannewsfeed.pagingsources.PAGE_SIZE
 import com.elnaz.theguardiannewsfeed.services.network.ApiService
 import com.elnaz.theguardiannewsfeed.services.room.AppDataBase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class MainRepository @Inject constructor(
@@ -16,11 +18,15 @@ class MainRepository @Inject constructor(
 ) {
 
     suspend fun insertArticle(article: Article){
-        db.articleDao.insert(article)
+        withContext(Dispatchers.IO){
+            db.articleDao.insert(article)
+        }
     }
 
     suspend fun deleteArticle(article: Article){
-        db.articleDao.delete(article)
+        withContext(Dispatchers.IO){
+            db.articleDao.delete(article)
+        }
     }
 
     suspend fun findArticle(id: String): List<Article> =
